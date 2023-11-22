@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp74/src/presentation/auth/views/auth_view.dart';
+import 'package:flutterapp74/src/presentation/splash/views/splash_view.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  await Supabase.initialize(
+    url: 'https://oxtilnmdxgvefefttnmy.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94dGlsbm1keGd2ZWZlZnR0bm15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM4ODgyNzAsImV4cCI6MTk5OTQ2NDI3MH0.eLsTXpJYoV-bgkXsIoDu0fHli0XBbzXlmaTm-PCrgjI',
+  );
   runApp(const MyApp());
 }
 
@@ -32,7 +38,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AuthConnector(),
+      home: const SplashConnector(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

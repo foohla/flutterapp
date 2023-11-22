@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp74/src/core/constants.dart';
 import 'package:flutterapp74/src/presentation/auth/widgets/social_button.dart';
 
-class AuthConnector extends StatelessWidget {
+class AuthConnector extends StatefulWidget {
   const AuthConnector({super.key});
+
+  @override
+  State<AuthConnector> createState() => _AuthConnectorState();
+}
+
+class _AuthConnectorState extends State<AuthConnector> {
+  @override
+  void initState() {
+    super.initState();
+    print(supabase.auth.currentUser);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +30,23 @@ class AuthConnector extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Title'),
-                    Text('Description'),
+                    Text(
+                      'Title',
+                      style: TextStyle(
+                        fontSize: 80.0, // Dimensione del titolo
+                        fontWeight: FontWeight.bold, // Grassetto
+                        color: Colors.white, // Colore bianco
+                        fontFamily: 'Helvetica', // Font Helvetica
+                      ),
+                    ),
+                    Text(
+                      'Description',
+                      style: TextStyle(
+                        fontSize: 48.0, // Dimensione della descrizione
+                        color: Colors.white, // Colore bianco
+                        fontFamily: 'Helvetica', // Font Helvetica
+                      ),
+                    ),
                     SizedBox.shrink(),
                   ],
                 ),
@@ -35,14 +62,39 @@ class AuthConnector extends StatelessWidget {
                 SizedBox.shrink(),
                 Column(
                   children: [
-                    Text('Get Started'),
+                    Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 18.0, // Dimensione del titolo
+                        fontWeight: FontWeight.bold, // Grassetto
+                        color: Colors.white, // Colore bianco
+                        fontFamily: 'Helvetica', // Font Helvetica
+                      ),
+                    ),
                     SocialButton(),
                   ],
                 ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Column(
-                    children: [Text('IED Exam'), Text('Privacy & Policy')],
+                    children: [
+                      Text(
+                        'IED Exam',
+                        style: TextStyle(
+                          fontSize: 18.0, // Dimensione del titolo
+                          color: Colors.white, // Colore bianco
+                          fontFamily: 'Helvetica', // Font Helvetica
+                        ),
+                      ),
+                      Text(
+                        'Privacy & Policy',
+                        style: TextStyle(
+                          fontSize: 18.0, // Dimensione del titolo
+                          color: Colors.white, // Colore bianco
+                          fontFamily: 'Helvetica', // Font Helvetica
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
